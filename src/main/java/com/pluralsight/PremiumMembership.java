@@ -30,4 +30,14 @@ public class PremiumMembership extends Membership{
         BigDecimal monthlyPrice = getBaseRate().add(new BigDecimal("18.50"));
         return monthlyPrice;
     }
+
+    @Override
+    public BigDecimal getSignUpFee() {
+        BigDecimal signUpFee;
+        if (getMonths() >= 12){
+            signUpFee = BigDecimal.ZERO;
+        }else signUpFee = new BigDecimal("49.00");
+
+        return signUpFee;
+    }
 }
